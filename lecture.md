@@ -10,7 +10,7 @@ date: 2022-09-13
 - [Berkeley Glossary](https://www.stat.berkeley.edu/~stark/SticiGui/Text/gloss.htm)
 - See [Wikipedia Glossary](https://en.wikipedia.org/wiki/Glossary_of_probability_and_statistics) as well
 
-## Motivation: Educational Migration and Remittance
+# Motivation: Educational Migration and Remittance
 Data: countryStudy, countryOrig, yearsStudy, remittance
 
 - Describe the amount remitted by educational migrants
@@ -38,33 +38,51 @@ Data: countryStudy, countryOrig, yearsStudy, remittance
 - Conditioning
 
 # Graphics
-### Numerical
-- Histogram 
+
+## Numerical
+
+Histogram 
+
 ![](remittance.svg)
 ![](yearsStudy.svg)
-### Numerical-Numerical
-- Scatter plot
+
+## Numerical-Numerical
+
+Scatter plot
+
 ![](yearsStudy-remittance.svg)
-### Numerical-Categorical
-- Pie chart
-![](yearsStudy-pie.svg)
-- Barplot
+
+## Numerical-Categorical
+
+Barplot
+
 ![](countryOrig-bar.svg)
+
+Pie chart
+
+![](yearsStudy-pie.svg)
+
 ## Table of Counts
 <table><tbody><tr><td></td><td>Denmark</td><td>New Zealand</td></tr><tr><td>No Remit</td><td>67</td><td>120</td></tr><tr><td>Remit</td><td>133</td><td>80</td></tr></tbody></table>
 
 # Inferential Statistics
 - Bias, assumptions
 - [Correlation](https://www.stat.berkeley.edu/~stark/Java/Html/Correlation.htm) (vs. causation)
-- Hypothesis testing
-- p-value
-- Confidence Interval
 ```
+> cor(yearsStudy, remittance)
+[1] 0.2038152
+```
+- Hypothesis testing $H_0, H_1$
+- p-value, critical value $\alpha$
+- [Confidence Interval](https://www.stat.berkeley.edu/~stark/Java/Html/Ci.htm), significance
+```
+> confint(estRemittanceMean)
                2.5 %   97.5 %
 (Intercept) 2435.021 3076.689
 ```
 - $\chi^2$ test
 ```
+> chisq.test(remit, countryStudy)
         Pearson's Chi-squared test with Yates' continuity correction
 
 data:  remit and countryStudy

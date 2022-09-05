@@ -22,19 +22,20 @@ hist(yearsStudy)
 dev.off()
 
 svg("yearsStudy-remittance.svg")
-plot(yearsStudy ~ remittance)
+plot(yearsStudy ~ remittance, main="Years Studied to Remittance")
 dev.off()
 
 svg("yearsStudy-pie.svg")
-pie(table(yearsStudy))
+pie(table(yearsStudy), main="Proportion of Sample by Years Studied")
 dev.off()
 
 svg("countryOrig-bar.svg")
-barplot(countryOrig)
+barplot(countryOrig, main="Count of Educational Migrants by Country of Origin", las=2)
 dev.off()
 
 write.table(table(remit, countryStudy), "remit.tab")
 
 cor(yearsStudy, remittance)
-confint(lm(remittance ~ 1))
+estRemittanceMean <- lm(remittance ~ 1)
+confint(estRemittanceMean)
 chisq.test(remit, countryStudy)

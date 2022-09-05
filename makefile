@@ -6,9 +6,9 @@ clean:
 .SUFFIXES: .html .md
 
 .md.html:
-	pandoc ${<} -st html >${@}
+	pandoc ${<} -st slidy >${@}
 
 lecture.md: ${tabs} ${svgs}
 
-${tabs} ${svgs}: script.R
-	./script.R
+${tabs} ${svgs}: lecture.R
+	./lecture.R
